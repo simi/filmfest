@@ -3,9 +3,9 @@
 Refinery::I18n.configure do |config|
   # config.enabled = true
 
-  # config.default_locale = :en
+  config.default_locale = :cs
 
-  # config.current_locale = :en
+  config.current_locale = :cs
 
   # config.default_frontend_locale = :en
 
