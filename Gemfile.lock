@@ -56,6 +56,15 @@ GIT
       rack-cache (>= 0.5.3)
       refinerycms-core (= 2.0.0)
 
+GIT
+  remote: http://github.com/seyhunak/twitter-bootstrap-rails.git
+  revision: 1860e9ed147d293bf7d780be5996a2992821c653
+  specs:
+    twitter-bootstrap-rails (2.0.3)
+      actionpack (>= 3.1)
+      less-rails (~> 2.1.6)
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -188,10 +197,6 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     truncate_html (0.5.4)
-    twitter-bootstrap-rails (2.0.2)
-      actionpack (>= 3.1)
-      less-rails (~> 2.1.5)
-      railties (>= 3.1)
     tzinfo (0.3.31)
     uglifier (1.2.3)
       execjs (>= 0.3.0)
@@ -212,5 +217,5 @@ DEPENDENCIES
   refinerycms-settings!
   sass-rails (~> 3.2.3)
   sqlite3
-  twitter-bootstrap-rails
+  twitter-bootstrap-rails!
   uglifier (>= 1.0.3)

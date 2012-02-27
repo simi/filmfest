@@ -21,7 +21,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "twitter-bootstrap-rails"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -42,6 +41,7 @@ gem "twitter-bootstrap-rails"
 gem 'refinerycms-settings', :git => 'git://github.com/parndt/refinerycms-settings.git'
 gem 'refinerycms', :git => 'git://github.com/resolve/refinerycms.git'
 
+gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 #  group :development, :test do
 #    gem 'refinerycms-testing', '~> 2.0'
 #  end
