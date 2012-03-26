@@ -1,9 +1,7 @@
 require "bundler/capistrano"
-require "rvm-capistrano"
 
 server "pepajs.cz", :web, :app, :db, primary: true
 
-set :rvm_ruby_string, '1.9.3-p125'
 set :application, "filmfest"
 set :user, "retro"
 set :deploy_to, "/home/#{user}/apps/#{application}"
@@ -23,16 +21,16 @@ namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
     task command, roles: :app, except: {no_release: true} do
-      run "/etc/init.d/unicorn_#{application} #{command}"
+      sudo "/etc/init.d/unicorn_#{application} #{command}"
     end
   end
 
   task :setup_config, roles: :app do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/conf.d/#{application}.conf"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
-    run "mkdir -p #{shared_path}/config"
-    put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
-    puts "Now edit the config files in #{shared_path}."
+    #run "mkdir -p #{shared_path}/config"
+    #put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+    #puts "Now edit the config files in #{shared_path}."
   end
   after "deploy:setup", "deploy:setup_config"
 
