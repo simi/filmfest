@@ -37,12 +37,12 @@ gem 'simple_form'
 # gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
+# gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'factory_girl_rails'
-gem 'will_paginate', :path => '../'
+gem 'will_paginate'
 
-gem 'ransack', :path => '../'#, :git => 'https://github.com/ernie/ransack.git'
+gem 'ransack'
 
 gem 'refinerycms-settings'
 gem 'refinerycms'
