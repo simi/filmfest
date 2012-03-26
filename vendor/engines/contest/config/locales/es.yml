@@ -1,0 +1,46 @@
+es:
+  refinery:
+    plugins:
+      movies:
+        title: Movies
+#        article: masculino/femenino
+    contest:
+      admin:
+        movies:
+          actions:
+            create_new: Crear nuevo movie
+            reorder: Reordenar movies
+            reorder_done: Reordenación de movies completada
+          records:
+            title: Movies
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay movies todavía. Pulsa en "Crear nuevo Movie" para crear tu primer movie.
+          movie:
+            view_live_html: Ver este movie como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este movie
+            delete: Borrar este movie para siempre
+      movies:
+        show:
+          other: Otros movies
+  activerecord:
+    attributes:
+      'refinery/contest/movie':
+        name: Name
+        anotation: Anotation
+        year: Year
+        director_name: Director Name
+        director_surname: Director Surname
+        director_year: Director Year
+        screenwriter_name: Screenwriter Name
+        screenwriter_surname: Screenwriter Surname
+        screenwriter_year: Screenwriter Year
+        category_id: Category
+        genre: Genre
+        actors: Actors
+        informations: Informations
+        youtube_link: Youtube Link
+        name: Name
+        surname: Surname
+        address: Address
+        telephone: Telephone
+        email: Email

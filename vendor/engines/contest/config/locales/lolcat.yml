@@ -1,0 +1,45 @@
+lolcat:
+  refinery:
+    plugins:
+      movies:
+        title: Movies
+    contest:
+      admin:
+        movies:
+          actions:
+            create_new: CREATE NEW Movie
+            reorder: REORDR Movies
+            reorder_done: DUN REORDERIN Movies
+          records:
+            title: Movies
+            sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+            no_items_yet: THAR R NO Movies YET. CLICK "CREATE NEW Movie" 2 ADD UR FURST movie.
+          movie:
+            view_live_html: VIEW DIS movie LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+            edit: EDIT DIS movie
+            delete: REMOOV DIS movie FOREVR
+      movies:
+        show:
+          other: OTHR Movies
+  activerecord:
+    attributes:
+      'refinery/contest/movie':
+        name: NAME
+        anotation: ANOTATION
+        year: YEAR
+        director_name: DIRECTOR NAME
+        director_surname: DIRECTOR SURNAME
+        director_year: DIRECTOR YEAR
+        screenwriter_name: SCREENWRITER NAME
+        screenwriter_surname: SCREENWRITER SURNAME
+        screenwriter_year: SCREENWRITER YEAR
+        category_id: CATEGORY
+        genre: GENRE
+        actors: ACTORS
+        informations: INFORMATIONS
+        youtube_link: YOUTUBE LINK
+        name: NAME
+        surname: SURNAME
+        address: ADDRESS
+        telephone: TELEPHONE
+        email: EMAIL

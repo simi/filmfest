@@ -1,0 +1,129 @@
+<%= form_for [refinery, :contest_admin, @movie] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @movie,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:anotation, :actors, :informations, :address].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/contest/movie", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:anotation, :actors, :informations, :address].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :year -%>
+    <%= f.text_field :year  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :director_name -%>
+    <%= f.text_field :director_name  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :director_surname -%>
+    <%= f.text_field :director_surname  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :director_year -%>
+    <%= f.number_field :director_year  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :screenwriter_name -%>
+    <%= f.text_field :screenwriter_name  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :screenwriter_surname -%>
+    <%= f.text_field :screenwriter_surname  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :screenwriter_year -%>
+    <%= f.number_field :screenwriter_year  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :category_id -%>
+    <%= f.select :category_id, ::Category.all.collect{|c| [c.name, c.id]}  -%>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :genre -%>
+    <%= f.text_field :genre  -%>
+  </div>
+  
+
+  <div class='field'>
+    <%= f.label :youtube_link -%>
+    <%= f.text_field :youtube_link  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :surname -%>
+    <%= f.text_field :surname  -%>
+
+  </div>
+  
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :telephone -%>
+    <%= f.text_field :telephone  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :email -%>
+    <%= f.text_field :email  -%>
+
+  </div>
+
+  <div class='field'>
+    <%= f.label :approved -%>
+    <%= f.check_box :approved  -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.movies.admin.movies.movie'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @movie.name) %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

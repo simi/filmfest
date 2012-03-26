@@ -1,0 +1,32 @@
+<%= search_form_for [refinery, :contest, @search], :html =>{:class => 'form-search'} do |f| %>
+  <%= f.text_field :name_cont, :placeholder => 'Hledat podle názvu', :class => 'search-query' %>
+  <%= f.button content_tag(:i, '', :class=> 'icon-search icon-white'), :class => 'btn btn-primary' %>
+  <%= link_to content_tag(:i, '', :class =>'icon-remove icon-white'), refinery.url_for(), :class => 'btn btn-inverse' %>
+<% end %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><%= sort_link @search, :name, 'Název filmu' %></th>
+      <th><%= sort_link @search, :director_surname, 'Režie' %></th>
+      <th><%= sort_link @search, :genre, 'Žánr' %></th>
+      <th><%= sort_link @search, :category_id, 'Kategorie' %></th>
+      <th><%= sort_link @search, :director_year, 'Věk' %></th>
+      <th>Hodnocení poroty</th>
+      <th>Divácké hodnocení</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= link_to movie.name, refinery.contest_movie_path(movie) %></td>
+      <td><%= movie.director %></td>
+      <td><%= movie.genre %></td>
+      <td><%= movie.category.name %></td>
+      <td><%= movie.age_category %></td>
+      <td><%= movie.judge_rating %></td>
+      <td><%= movie.public_rating %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= will_paginate @movies %>

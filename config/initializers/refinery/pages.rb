@@ -34,11 +34,11 @@ Refinery::Pages.configure do |config|
 
   # config.layout_template_whitelist = ["application"]
 
-  # config.view_template_whitelist = ["home", "show"]
+  config.view_template_whitelist = ["home", "show", "add_movie"]
 
   # config.use_layout_templates = false
 
-  # config.use_view_templates = false
+  config.use_view_templates = true
 
   # config.absolute_page_links = false
 end

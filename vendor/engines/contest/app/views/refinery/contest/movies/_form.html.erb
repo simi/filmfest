@@ -1,0 +1,47 @@
+<%= simple_form_for(session[:movie] ||= ::Refinery::Contest::Movie.new, :url => contest_movies_path, :method => :post, :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification :message => 'Film se nepodařilo přihlásit, zkontrolujte prosím formulář:' %>
+  <% reset_movie_session %>
+  <h2>O filmu</h2>
+  <%= f.input :name, :label => 'Jméno' %>
+  <%= f.input :anotation, :label => 'Anotace', :placeholder => 'krátký popis' %>
+  <%= f.input :year, :label => 'Rok dokončení filmu',
+    :hint => 'soutěžit smí pouze filmy dokončené v letch 2010 až 2012',
+    :collection => 2010..2012,
+    :prompt => 'zvolte rok' %>
+  <%= f.association :category, :prompt => 'zvolte kategorii', :label => 'Kategorie' %>
+  <%= f.input :genre, :label => 'Žánr', :placeholder => 'dopište dle vlastního uvážení' %>
+  <%= f.input :actors, :label => 'Hrají' %>
+  <%= f.input :informations, :label => 'Další informace', :hint => 'napište vše co považujete za podstatné' %>
+  <%= f.input :youtube_link, :label => 'Youtube odkaz', :hint => 've tvaru http://www.youtube.com/watch?v=5pr4Ugdg-9k' %>
+  <h2>Režie</h2>
+  <%= f.input :director_name, :label => 'Jméno' %>
+  <%= f.input :director_surname, :label => 'Příjmení' %>
+  <%= f.input :director_year, :label => 'Rok narození', :collection => 1986..2005, :prompt => 'zvolte rok' %>
+  <h2>Scénář</h2>
+  <%= f.input :screenwriter_name, :label => 'Jméno' %>
+  <%= f.input :screenwriter_surname, :label => 'Příjmení' %>
+  <%= f.input :screenwriter_year, :label => 'Rok narození', :collection => 1986..2005, :prompt => 'zvolte rok' %>
+  <h2>Kontaktní osoba</h2>
+  <%= f.input :surname, :label => 'Jméno a příjmení' %>
+  <%= f.input :address, :label => 'Adresa' %>
+  <%= f.input :telephone, :label => 'Telefon' %>
+  <%= f.input :email, :label => 'Email' %>
+  <div class="controls alert alert-info info">
+    <h3>
+    <p>
+      Odesláním se přihlašujete do soutěže KARLÍN FILM FEST.<br/>
+      Zároveň potvrzujete pravdivost všech odevzdaných údajů a souhlasíte s pravidly soutěže.
+    </p>
+    <p>
+      Po odeslání filmu přijde potvrzovací email.</br>
+      Film bude umístěn na stránky www.karlinfilmfest.cz nejpozději do tří týdnů. Filmy zaslané v červnu a srpnu budou umístěné nejpozději 14. září 2010.
+    </p>
+    <p>
+      Před odesláním pečklivě zkontrolujte všechny údaje. Na základě Vámi zaslaných údajů vytvoříme unikátní stránku pro váš film, na které nepůjde nic dodatečně měnit.
+    </p>
+    <h3>
+  </div>
+  <div class="controls">
+    <%= f.submit 'Přihlásit film do soutěže', :class => 'btn-primary btn-large' %>
+  </div>
+<% end %>

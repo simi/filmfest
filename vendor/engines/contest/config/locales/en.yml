@@ -1,0 +1,45 @@
+en:
+  refinery:
+    plugins:
+      movies:
+        title: Movies
+    contest:
+      admin:
+        movies:
+          actions:
+            create_new: Add New Movie
+            reorder: Reorder Movies
+            reorder_done: Done Reordering Movies
+          records:
+            title: Movies
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Movies yet. Click "Add New Movie" to add your first movie.
+          movie:
+            view_live_html: View this movie live <br/><em>(opens in a new window)</em>
+            edit: Edit this movie
+            delete: Remove this movie forever
+      movies:
+        show:
+          other: Other Movies
+  activerecord:
+    attributes:
+      'refinery/contest/movie':
+        name: Name
+        anotation: Anotation
+        year: Year
+        director_name: Director Name
+        director_surname: Director Surname
+        director_year: Director Year
+        screenwriter_name: Screenwriter Name
+        screenwriter_surname: Screenwriter Surname
+        screenwriter_year: Screenwriter Year
+        category_id: Category
+        genre: Genre
+        actors: Actors
+        informations: Informations
+        youtube_link: Youtube Link
+        name: Name
+        surname: Surname
+        address: Address
+        telephone: Telephone
+        email: Email

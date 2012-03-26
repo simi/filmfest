@@ -1,0 +1,20 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(movie) -%>">
+  <span class='title'>
+    <%= movie.name %> - 
+    <%= movie.approved ? 'schválen' : '<b>neschválen</b>'.html_safe %>
+  </span>
+  <span class='actions'>
+    
+    <%= link_to refinery_icon_tag("application_go.png"), refinery.contest_movie_path(movie),
+        :title => t('.view_live_html'),
+        :target => "_blank" %>
+    
+    <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_contest_admin_movie_path(movie),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), refinery.contest_admin_movie_path(movie),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'refinery.admin.delete', :title => movie.name),
+        :method => :delete %>
+  </span>
+</li>

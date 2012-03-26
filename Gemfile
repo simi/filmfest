@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,6 +22,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'simple_form'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -35,11 +37,17 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => 'ruby-debug'
 
+gem 'factory_girl_rails'
+gem 'will_paginate', :path => '../'
 
-gem 'refinerycms-settings', :git => 'git://github.com/parndt/refinerycms-settings.git'
-gem 'refinerycms', :git => 'git://github.com/resolve/refinerycms.git'
+gem 'ransack', :path => '../'#, :git => 'https://github.com/ernie/ransack.git'
+
+gem 'refinerycms-settings'
+gem 'refinerycms'
+
+gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 #  group :development, :test do
@@ -49,7 +57,7 @@ gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-boots
 # USER DEFINED
 
 # Add i18n support (optional, you can remove this if you really want to but it is advised to keep it).
-gem 'refinerycms-i18n',   '~> 2.0.0', :git => 'git://github.com/parndt/refinerycms-i18n.git'
+gem 'refinerycms-i18n', :git => 'git://github.com/parndt/refinerycms-i18n.git'
 
 # Specify additional Refinery CMS Engines here (all optional):
 #  gem 'refinerycms-blog', :git => 'git://github.com/resolve/refinerycms-blog.git', :branch => 'rails-3-1'
@@ -58,3 +66,5 @@ gem 'refinerycms-i18n',   '~> 2.0.0', :git => 'git://github.com/parndt/refineryc
 #  gem 'refinerycms-page-images', :git => 'git://github.com/resolve/refinerycms-page-images.git', :branch => 'rails-3-1'
 
 # END USER DEFINED
+
+gem 'refinerycms-contest', :path => 'vendor/engines'

@@ -49,7 +49,7 @@ if Refinery::Page.by_title("Soutěžní filmy").empty?
 end
 
 if Refinery::Page.by_title("Přidat film").empty?
-  about_us_page = ::Refinery::Page.create(:title => "Přidat film")
+  about_us_page = ::Refinery::Page.create(:title => "Přidat film", :view_template => 'add_movie')
   about_us_page.parts.create({
                 :title => "Obsah",
                 :body => "<p>Krátké info</p>",
@@ -87,3 +87,8 @@ if Refinery::Page.by_title("Pravidla").empty?
                 :position => 0
               })
 end
+Refinery::Contest::Engine.load_seed
+
+Category.create!(:name => 'Hraný film')
+Category.create!(:name => 'Animovaný film')
+Category.create!(:name => 'Dokument')

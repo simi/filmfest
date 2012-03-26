@@ -1,0 +1,45 @@
+nb:
+  refinery:
+    plugins:
+      movies:
+        title: Movies
+    contest:
+      admin:
+        movies:
+          actions:
+            create_new: Lag en ny Movie
+            reorder: Endre rekkefølgen på Movies
+            reorder_done: Ferdig å endre rekkefølgen Movies
+          records:
+            title: Movies
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Movies enda. Klikk på "Lag en ny Movie" for å legge til din første movie.
+          movie:
+            view_live_html: Vis hvordan denne movie ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne movie
+            delete: Fjern denne movie permanent
+      movies:
+        show:
+          other: Andre Movies
+  activerecord:
+    attributes:
+      'refinery/contest/movie':
+        name: Name
+        anotation: Anotation
+        year: Year
+        director_name: Director Name
+        director_surname: Director Surname
+        director_year: Director Year
+        screenwriter_name: Screenwriter Name
+        screenwriter_surname: Screenwriter Surname
+        screenwriter_year: Screenwriter Year
+        category_id: Category
+        genre: Genre
+        actors: Actors
+        informations: Informations
+        youtube_link: Youtube Link
+        name: Name
+        surname: Surname
+        address: Address
+        telephone: Telephone
+        email: Email

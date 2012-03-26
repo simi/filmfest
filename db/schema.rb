@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227103327) do
+ActiveRecord::Schema.define(:version => 20120326100906) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "refinery_contest_movies", :force => true do |t|
+    t.string   "name"
+    t.text     "anotation"
+    t.string   "year"
+    t.string   "director_name"
+    t.string   "director_surname"
+    t.integer  "director_year"
+    t.string   "screenwriter_name"
+    t.string   "screenwriter_surname"
+    t.integer  "screenwriter_year"
+    t.integer  "category_id"
+    t.string   "genre"
+    t.text     "actors"
+    t.text     "informations"
+    t.string   "youtube_link"
+    t.string   "surname"
+    t.text     "address"
+    t.string   "telephone"
+    t.string   "email"
+    t.integer  "position"
+    t.boolean  "approved"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"

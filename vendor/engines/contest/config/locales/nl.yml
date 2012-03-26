@@ -1,0 +1,45 @@
+nl:
+  refinery:
+    plugins:
+      movies:
+        title: Movies
+    contest:
+      admin:
+        movies:
+          actions:
+            create_new: Maak een nieuwe Movie
+            reorder: Wijzig de volgorde van de Movies
+            reorder_done: Klaar met het wijzingen van de volgorde van de Movies
+          records:
+            title: Movies
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Movies. Druk op 'Maak een nieuwe Movie' om de eerste aan te maken.
+          movie:
+            view_live_html: Bekijk deze movie op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze movie
+            delete: Verwijder deze movie voor eeuwig
+      movies:
+        show:
+          other: Andere Movies
+  activerecord:
+    attributes:
+      'refinery/contest/movie':
+        name: Name
+        anotation: Anotation
+        year: Year
+        director_name: Director Name
+        director_surname: Director Surname
+        director_year: Director Year
+        screenwriter_name: Screenwriter Name
+        screenwriter_surname: Screenwriter Surname
+        screenwriter_year: Screenwriter Year
+        category_id: Category
+        genre: Genre
+        actors: Actors
+        informations: Informations
+        youtube_link: Youtube Link
+        name: Name
+        surname: Surname
+        address: Address
+        telephone: Telephone
+        email: Email

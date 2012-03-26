@@ -1,0 +1,45 @@
+cs:
+  refinery:
+    plugins:
+      movies:
+        title: Filmy
+    contest:
+      admin:
+        movies:
+          actions:
+            create_new: Přidat film
+            reorder: Seřadit filmy
+            reorder_done: Hotovo
+          records:
+            title: Filmy
+            sorry_no_results: Nic nenalezeno!
+            no_items_yet: Zatím není přidaný žádný film.
+          movie:
+            view_live_html: Otevřít film v novém okně.
+            edit: Upravit film
+            delete: Smazat film
+      movies:
+        show:
+          other: Další filmy
+  activerecord:
+    attributes:
+      'refinery/contest/movie':
+        name: Název
+        anotation: Anotace
+        year: Rok
+        director_name: Jméno režíséra
+        director_surname: Příjmení režiséra
+        director_year: Rok narození režiséra
+        screenwriter_name: Jméno scénaristy
+        screenwriter_surname: Příjmení scénaristy
+        screenwriter_year: Rok narození scénaristy
+        category_id: Kategorie
+        genre: Žánr
+        actors: Herci
+        informations: Informace
+        youtube_link: Youtube odkaz
+        surname: Jméno kontaktní osoby
+        address: Adresa
+        telephone: Telefon
+        email: Email
+        approved: Schváleno
