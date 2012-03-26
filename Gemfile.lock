@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/ctran/annotate_models.git
-  revision: ff1131daee8c03dbcc4966b7914b77a7e3a62f02
-  specs:
-    annotate (2.4.1.beta1)
-
-GIT
   remote: git://github.com/parndt/refinerycms-i18n.git
   revision: 554f1b8aaf049467a7f6990cf268530c3af8eb3f
   specs:
@@ -247,7 +241,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate!
   capistrano
   coffee-rails (~> 3.2.1)
   factory_girl_rails

@@ -22,7 +22,6 @@ end
 
 gem 'jquery-rails'
 
-gem 'simple_form'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -35,27 +34,26 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
-gem 'rvm-capistrano'
+gem 'rvm-capistrano', :require => nil
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'factory_girl_rails'
-gem 'will_paginate'
 
-gem 'ransack'
 
-gem 'refinerycms-settings'
 gem 'refinerycms'
+gem 'refinerycms-settings'
 
-gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
-
-gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 #  group :development, :test do
 #    gem 'refinerycms-testing', '~> 2.0'
 #  end
 
 # USER DEFINED
+gem 'factory_girl_rails'
+gem 'ransack'
+gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'simple_form'
+gem 'will_paginate'
 
 # Add i18n support (optional, you can remove this if you really want to but it is advised to keep it).
 gem 'refinerycms-i18n', :git => 'git://github.com/parndt/refinerycms-i18n.git'
