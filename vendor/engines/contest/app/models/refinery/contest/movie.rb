@@ -2,6 +2,9 @@
 module Refinery
   module Contest
     class Movie < Refinery::Core::BaseModel
+      extend FriendlyId
+
+      friendly_id :name, use: :slugged
       acts_as_indexed :fields => [:name, :anotation, :year, :director_name, :director_surname, :screenwriter_name, :screenwriter_surname, :genre, :actors, :informations, :youtube_link, :name, :surname, :address, :telephone, :email]
       belongs_to :category, :class_name => ::Category
 
@@ -18,6 +21,10 @@ module Refinery
 
       def director
         [director_name, director_surname].join(' ')
+      end
+
+      def screenwriter
+        [screenwriter_name, screenwriter_surname].join(' ')
       end
 
       def age_category
