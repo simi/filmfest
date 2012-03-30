@@ -38,6 +38,11 @@ module Refinery
       def public_rating
         0
       end
+
+      def youtube_embed
+        link = youtube_link.scan(/http:\/\/www.youtube.com\/watch\?v=(.*)/).flatten.first
+        "<iframe width=\"770\" height=\"400\" src=\"http://www.youtube.com/embed/#{link}\" frameborder=\"0\" allowfullscreen></iframe>".html_safe
+      end
     end
   end
 end
