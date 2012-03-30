@@ -11,6 +11,9 @@ module Refinery
       scope :approved, where(:approved => true)
 
       validates_uniqueness_of :name, :message => 'film s tímto názvem již soutěží'
+      validates_format_of :youtube_link,
+        :with => /http:\/\/www.youtube.com\/watch\?v=(.*)/,
+        :message => 'Prosím zadejte youtube link ve tvaru "http://www.youtube.com/watch?v=5pr4Ugdg-9k"'
       ["name", "anotation", "year", "director_name", "director_surname",
         "director_year", "screenwriter_name", "screenwriter_surname",
         "screenwriter_year", "category_id", "genre", "actors",
