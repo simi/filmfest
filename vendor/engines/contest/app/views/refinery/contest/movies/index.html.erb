@@ -6,11 +6,11 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th><%= sort_link @search, :name, 'Název filmu' %></th>
-      <th><%= sort_link @search, :director_surname, 'Režie' %></th>
-      <th><%= sort_link @search, :genre, 'Žánr' %></th>
-      <th><%= sort_link @search, :category_id, 'Kategorie' %></th>
-      <th><%= sort_link @search, :director_year, 'Věk' %></th>
+      <th><%= sort_link [:refinery, @search], :name, 'Název filmu' %></th>
+      <th><%= sort_link [:refinery, @search], :director_surname, 'Režie' %></th>
+      <th><%= sort_link [:refinery, @search], :genre, 'Žánr' %></th>
+      <th><%= sort_link [:refinery, @search], :category_id, 'Kategorie' %></th>
+      <th><%= sort_link [:refinery, @search], :director_year, 'Věk' %></th>
       <th>Hodnocení poroty</th>
       <th>Divácké hodnocení</th>
     </tr>
@@ -29,4 +29,4 @@
   <% end %>
   </tbody>
 </table>
-<%= will_paginate @movies %>
+<%#= will_paginate @movies, :params => {:use_route => :refinery} %>
