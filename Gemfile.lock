@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/ernie/ransack.git
-  revision: 82d2a806da8157954b8c58b41f769b5d1825efa5
+  revision: f3da0b529f1c35165c77061a72e70d8503b3d4eb
   specs:
     ransack (0.6.0)
       actionpack (~> 3.0)
@@ -181,7 +181,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.18)
-    multi_json (1.1.0)
+    multi_json (1.2.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
