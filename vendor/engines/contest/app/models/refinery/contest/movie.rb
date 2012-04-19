@@ -8,6 +8,9 @@ module Refinery
       acts_as_indexed :fields => [:name, :anotation, :year, :director_name, :director_surname, :screenwriter_name, :screenwriter_surname, :genre, :actors, :informations, :youtube_link, :name, :surname, :address, :telephone, :email]
       belongs_to :category, :class_name => ::Category
 
+      has_many :ratings, :class_name => '::Refinery::Contest::Movie::Rating'
+      has_many :comments, :class_name => '::Refinery::Contest::Movie::Comment'
+
       before_save :save_age_category
       scope :approved, where(:approved => true)
 
@@ -35,20 +38,17 @@ module Refinery
         self.age_category = (director_year > 1994) ? "7-18" : "19-26"
       end
 
-      def judge_rating
-        0
-      end
-
-      def public_rating
-        0
-      end
-
       def youtube_embed
         link = youtube_link.scan(/http:\/\/www.youtube.com\/watch\?v=(.*)/).flatten.first
-        "<iframe width=\"770\" height=\"400\" src=\"http://www.youtube.com/embed/#{link}\" frameborder=\"0\" allowfullscreen></iframe>".html_safe
+        "<iframe width=\"770\" height=\"400\" src=\"http://www.youtube.com/embed/#{link}?wmode=opaque\" frameborder=\"0\" allowfullscreen></iframe>".html_safe
       end
 
       def rated?
+        true if self.judge_rating && self.judge_text_rating
+      end
+
+      def update_rating!
+        self.update_attribute(:average_rating, self.ratings.average(:value))
       end
     end
   end

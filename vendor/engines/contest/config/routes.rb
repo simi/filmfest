@@ -2,7 +2,10 @@ Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
   namespace :contest, :path => '' do
-    resources :movies, :only => [:create, :index, :show], :path => 'soutezni-filmy'
+    resource :comments, :only => [:create]
+    resource :ratings, :only => [:create]
+    resources :movies, :only => [:create, :index, :show], :path => 'soutezni-filmy' do
+    end
   end
 
   # Admin routes

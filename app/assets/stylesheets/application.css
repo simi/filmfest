@@ -12,3 +12,10 @@
  *= require theme
  *= require_tree .
 */
+body {
+  margin-top: 10px !important;
+}
+
+.nav {
+  margin-top: 18px;
+}

@@ -1,3 +1,4 @@
+<h2>Hodnocení</h2>
 <div class="rating">
   <% if @movie.rated? %>
     <span class="name">Hodnocení poroty</span><span class="rating"><%= @movie.judge_rating %></span>
@@ -10,37 +11,48 @@
 <div class="plenary-rating">
   <ul>
     <li>
-    <span class="name">Divácké hodnocení</span><span class="rating">4</span>
+    <span class="name">Divácké hodnocení</span><span class="rating"><%= @movie.average_rating %></span>
     </li>
-    <li>
-    <span class="name">Grobus</span><span class="rating">4</span>
-    </li>
-    <li>
-    <span class="name">Kadlec</span><span class="rating">4</span>
-    </li>
-    <li>
-    <span class="name">Orbit</span><span class="rating">4</span>
-    </li>
-    <li>
-    <span class="name">Jana kulová</span><span class="rating">4</span>
-    </li>
+    <% @movie.ratings.all.last(5).each do |rating| %>
+      <li>
+      <span class="name"><%= rating.name %></span><span class="rating"><%= rating.value %></span>
+      </li>
+    <% end %>
   </ul>
+  <h3>Ohodnotit</h3>
+  <% if guest_can_rate? %>
+    <%= simple_form_for(@movie.ratings.new, :url => refinery.contest_ratings_path, :method => :post, :html => {:class => 'form-vertical' }) do |f| %>
+      <%= f.input :name, :placeholder => 'Jméno', :label => ' ', :required => false %>
+      <%= f.input :value, :collection => 1..5,  :label => ' ', :required => false %>
+      <%= f.input :movie_id, :as => :hidden, :value => @movie.id %>
+      <%= f.submit 'Odeslat' %>
+    <% end %>
+  <% end %>
+  <% if @movie.ratings.count > 5 %>
+    <%= link_to 'Všechny hodnocení', '#ratingsModal', :data => {:toggle => 'modal'} %>
+  <% else %>
+    <i>Nemůžete přidat hodnocení. <br />Z této IP adresy byl již bylo odesláno.</i>
+  <% end %>
+  <%= render 'ratings' %>
 </div>
 <div class="comments">
-  <div class="comment">
-    <span class="name">Grobus</span><span class="date">10.5.2011</span>
-    <div class="message">Super film!</div>
-  </div>
-  <div class="comment">
-    <span class="name">Grobus</span><span class="date">10.5.2011</span>
-    <div class="message">Super film!</div>
-  </div>
-  <div class="comment">
-    <span class="name">Grobus</span><span class="date">10.5.2011</span>
-    <div class="message">Super film!</div>
-  </div>
-  <div class="comment">
-    <span class="name">Grobus</span><span class="date">10.5.2011</span>
-    <div class="message">Super film!</div>
-  </div>
+  <h2>Komentáře</h2>
+  <% @movie.comments.all.last(5).each do |comment| %>
+    <div class="comment">
+      <span class="name"><%= comment.name %></span><span class="date"><%= comment.created_at.to_date.strftime('%d.%m.%Y') %></span>
+      <div class="message"><%= comment.text %></div>
+    </div>
+  <% end %>
+
+  <h3>Přidat komentář</h3>
+  <%= simple_form_for(@movie.comments.new, :url => refinery.contest_comments_path, :method => :post, :html => {:class => 'form-vertical' }) do |f| %>
+    <%= f.input :name, :placeholder => 'Jméno', :label => ' ', :required => false %>
+    <%= f.input :text, :placeholder => 'Text', :label => ' ', :required => false %>
+    <%= f.input :movie_id, :as => :hidden, :value => @movie.id %>
+    <%= f.submit 'Odeslat' %>
+  <% end %>
+  <% if @movie.comments.count > 5 %>
+    <%= link_to 'Všechny komentáře', '#commentsModal', :data => {:toggle => 'modal'} %>
+  <% end %>
+  <%= render 'comments' %>
 </div>

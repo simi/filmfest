@@ -1,0 +1,29 @@
+<div class="modal hide fade" id="commentsModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Komentáře k filmu <%= @movie.name %></h3>
+  </div>
+  <div class="modal-body">
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th>Jméno</th>
+          <th>Komentář</th>
+          <th>Čas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @movie.comments.all.reverse.each do |comment| %>
+        <tr>
+          <td><%= comment.name %></td>
+          <td><%= comment.text %></td>
+          <td><%= comment.created_at.strftime("%H:%M %d.%m.%Y") %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <a data-dismiss="modal" href="#" class="btn">Zavřít</a>
+  </div>
+</div>

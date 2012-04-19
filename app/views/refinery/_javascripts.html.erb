@@ -4,6 +4,7 @@
 <% if request.env['HTTP_USER_AGENT'] =~ /MSIE/ %>
   <!--[if lt IE 7 ]>
     <%= javascript_include_tag 'dd_belatedpng' %>
+    <%= javascript_include_tag 'application' %>
     <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
   <![endif]-->
 <% end %>

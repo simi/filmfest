@@ -11,10 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411083513) do
+ActiveRecord::Schema.define(:version => 20120419081832) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "refinery_contest_movie_comments", :force => true do |t|
+    t.integer  "movie_id"
+    t.string   "name"
+    t.text     "text"
+    t.string   "ip"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "refinery_contest_movie_ratings", :force => true do |t|
+    t.integer  "movie_id"
+    t.integer  "value"
+    t.string   "name"
+    t.string   "ip"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -40,12 +58,13 @@ ActiveRecord::Schema.define(:version => 20120411083513) do
     t.string   "email"
     t.integer  "position"
     t.boolean  "approved"
-    t.datetime "created_at",                                                          :null => false
-    t.datetime "updated_at",                                                          :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "slug"
     t.string   "judge_text_rating"
-    t.decimal  "judge_rating",         :precision => 2, :scale => 1, :default => 0.0
+    t.float    "judge_rating"
     t.string   "age_category"
+    t.float    "average_rating",       :default => 0.0
   end
 
   create_table "refinery_images", :force => true do |t|

@@ -41,6 +41,16 @@ module Refinery
         #@page = Refinery::Page.by_title("Soutěžní filmy")
       end
 
+    private
+    def guest_can_comment?
+      @movie.comments.where(:ip => request.ip).empty?
+    end
+
+    def guest_can_rate?
+      @movie.ratings.where(:ip => request.ip).empty?
+    end
+
+    helper_method :guest_can_rate?, :guest_can_comment?
     end
   end
 end
