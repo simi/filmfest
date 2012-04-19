@@ -1,6 +1,11 @@
 <div class="rating">
-  <h3>Hodnocení poroty</h3>
-  <p>super hodnocení</p>
+  <% if @movie.rated? %>
+    <span class="name">Hodnocení poroty</span><span class="rating"><%= @movie.judge_rating %></span>
+    <p><%= @movie.judge_text_rating %></p>
+  <% else %>
+    <span class="name">Hodnocení poroty</span><span class="rating"></span>
+    <p><i>zatím nehodnoceno</i></p>
+  <% end %>
 </div>
 <div class="plenary-rating">
   <ul>

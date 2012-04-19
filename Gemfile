@@ -36,12 +36,12 @@ gem 'unicorn'
 gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
+# gem 'ruby-debug19', :require => 'ruby-debug'
 
 
 
-gem 'refinerycms', :git => 'https://github.com/resolve/refinerycms.git'
-gem 'refinerycms-settings', :git => 'https://github.com/parndt/refinerycms-settings.git'
+gem 'refinerycms'#, #:git => 'https://github.com/resolve/refinerycms.git'
+gem 'refinerycms-settings'#, :git => 'https://github.com/parndt/refinerycms-settings.git'
 
 #  group :development, :test do
 #    gem 'refinerycms-testing', '~> 2.0'
@@ -55,7 +55,7 @@ gem 'simple_form'
 gem 'will_paginate'
 
 # Add i18n support (optional, you can remove this if you really want to but it is advised to keep it).
-gem 'refinerycms-i18n', :git => 'git://github.com/parndt/refinerycms-i18n.git'
+gem 'refinerycms-i18n'#, :git => 'git://github.com/parndt/refinerycms-i18n.git'
 
 # Specify additional Refinery CMS Engines here (all optional):
 #  gem 'refinerycms-blog', :git => 'git://github.com/resolve/refinerycms-blog.git', :branch => 'rails-3-1'

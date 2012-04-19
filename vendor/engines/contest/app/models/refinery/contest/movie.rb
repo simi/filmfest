@@ -8,6 +8,7 @@ module Refinery
       acts_as_indexed :fields => [:name, :anotation, :year, :director_name, :director_surname, :screenwriter_name, :screenwriter_surname, :genre, :actors, :informations, :youtube_link, :name, :surname, :address, :telephone, :email]
       belongs_to :category, :class_name => ::Category
 
+      before_save :save_age_category
       scope :approved, where(:approved => true)
 
       validates_uniqueness_of :name, :message => 'film s tímto názvem již soutěží'
@@ -30,8 +31,8 @@ module Refinery
         [screenwriter_name, screenwriter_surname].join(' ')
       end
 
-      def age_category
-        (director_year > 1994) ? "7-18" : "19-26"
+      def save_age_category
+        self.age_category = (director_year > 1994) ? "7-18" : "19-26"
       end
 
       def judge_rating
@@ -45,6 +46,9 @@ module Refinery
       def youtube_embed
         link = youtube_link.scan(/http:\/\/www.youtube.com\/watch\?v=(.*)/).flatten.first
         "<iframe width=\"770\" height=\"400\" src=\"http://www.youtube.com/embed/#{link}\" frameborder=\"0\" allowfullscreen></iframe>".html_safe
+      end
+
+      def rated?
       end
     end
   end

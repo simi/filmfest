@@ -43,3 +43,5 @@ cs:
         telephone: Telefon
         email: Email
         approved: Schváleno
+        judge_text_rating: Textové hodnocení poroty
+        judge_rating: Bodování poroty

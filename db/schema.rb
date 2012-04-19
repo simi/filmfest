@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120328175837) do
+ActiveRecord::Schema.define(:version => 20120411083513) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -40,9 +40,12 @@ ActiveRecord::Schema.define(:version => 20120328175837) do
     t.string   "email"
     t.integer  "position"
     t.boolean  "approved"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                                                          :null => false
+    t.datetime "updated_at",                                                          :null => false
     t.string   "slug"
+    t.string   "judge_text_rating"
+    t.decimal  "judge_rating",         :precision => 2, :scale => 1, :default => 0.0
+    t.string   "age_category"
   end
 
   create_table "refinery_images", :force => true do |t|

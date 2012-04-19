@@ -2,7 +2,7 @@
   <%= f.error_notification :message => 'Film se nepodařilo přihlásit, zkontrolujte prosím formulář:' %>
   <% reset_movie_session %>
   <h2>O filmu</h2>
-  <%= f.input :name, :label => 'Jméno' %>
+  <%= f.input :name, :label => 'Název filmu' %>
   <%= f.input :anotation, :label => 'Anotace', :placeholder => 'krátký popis' %>
   <%= f.input :year, :label => 'Rok dokončení filmu',
     :hint => 'soutěžit smí pouze filmy dokončené v letch 2010 až 2012',
@@ -22,6 +22,7 @@
   <%= f.input :screenwriter_surname, :label => 'Příjmení' %>
   <%= f.input :screenwriter_year, :label => 'Rok narození', :collection => 1986..2005, :prompt => 'zvolte rok' %>
   <h2>Kontaktní osoba</h2>
+  <p><i>Tyto informace nebudou veřejně dostupné.</i></p>
   <%= f.input :surname, :label => 'Jméno a příjmení' %>
   <%= f.input :address, :label => 'Adresa' %>
   <%= f.input :telephone, :label => 'Telefon' %>
