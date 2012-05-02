@@ -1,4 +1,6 @@
 <h2>Hodnocení</h2>
+<h4>5 bodů super, 1 bod strašné</h4>
+<br />
 <div class="rating">
   <% if @movie.rated? %>
     <span class="name">Hodnocení poroty</span><span class="rating"><%= @movie.judge_rating %></span>
@@ -11,7 +13,7 @@
 <div class="plenary-rating">
   <ul>
     <li>
-    <span class="name">Divácké hodnocení</span><span class="rating"><%= @movie.average_rating %></span>
+    <span class="name">Divácké hodnocení</span><span class="rating"><%= @movie.average_rating.round(1) %></span>
     </li>
     <% @movie.ratings.all.last(5).each do |rating| %>
       <li>
@@ -19,6 +21,9 @@
       </li>
     <% end %>
   </ul>
+  <% if @movie.ratings.count > 5 %>
+    <%= link_to 'Všechna hodnocení', '#ratingsModal', :data => {:toggle => 'modal'} %>
+  <% end %>
   <h3>Ohodnotit</h3>
   <% if guest_can_rate? %>
     <%= simple_form_for(@movie.ratings.new, :url => refinery.contest_ratings_path, :method => :post, :html => {:class => 'form-vertical' }) do |f| %>
@@ -27,9 +32,6 @@
       <%= f.input :movie_id, :as => :hidden, :value => @movie.id %>
       <%= f.submit 'Odeslat' %>
     <% end %>
-  <% end %>
-  <% if @movie.ratings.count > 5 %>
-    <%= link_to 'Všechny hodnocení', '#ratingsModal', :data => {:toggle => 'modal'} %>
   <% else %>
     <i>Nemůžete přidat hodnocení. <br />Z této IP adresy byl již bylo odesláno.</i>
   <% end %>
@@ -39,9 +41,13 @@
   <h2>Komentáře</h2>
   <% @movie.comments.all.last(5).each do |comment| %>
     <div class="comment">
-      <span class="name"><%= comment.name %></span><span class="date"><%= comment.created_at.to_date.strftime('%d.%m.%Y') %></span>
+      <span class="name"><%= comment.name %></span><span class="date"><%= comment.created_at.strftime('%H:%M %d.%m.%Y') %></span>
       <div class="message"><%= comment.text %></div>
     </div>
+  <% end %>
+
+  <% if @movie.comments.count > 5 %>
+    <%= link_to 'Všechny komentáře', '#commentsModal', :data => {:toggle => 'modal'} %>
   <% end %>
 
   <h3>Přidat komentář</h3>
@@ -50,9 +56,6 @@
     <%= f.input :text, :placeholder => 'Text', :label => ' ', :required => false %>
     <%= f.input :movie_id, :as => :hidden, :value => @movie.id %>
     <%= f.submit 'Odeslat' %>
-  <% end %>
-  <% if @movie.comments.count > 5 %>
-    <%= link_to 'Všechny komentáře', '#commentsModal', :data => {:toggle => 'modal'} %>
   <% end %>
   <%= render 'comments' %>
 </div>

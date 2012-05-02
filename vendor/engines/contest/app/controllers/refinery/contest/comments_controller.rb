@@ -8,6 +8,13 @@ module Refinery
         @comment.save!
         redirect_to :back, :notice => 'Komentář přidán'
       end
+
+      def destroy
+        raise 'NotLogged' unless refinery_user?
+        @comment = Refinery::Contest::Movie::Comment.find(params[:id])
+        @comment.destroy
+        redirect_to :back, :alert => 'Komentář smazán'
+      end
     end
   end
 end

@@ -4,26 +4,21 @@
     <h3>Komentáře k filmu <%= @movie.name %></h3>
   </div>
   <div class="modal-body">
-    <table style="width: 100%">
-      <thead>
-        <tr>
-          <th>Jméno</th>
-          <th>Komentář</th>
-          <th>Čas</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @movie.comments.all.reverse.each do |comment| %>
-        <tr>
-          <td><%= comment.name %></td>
-          <td><%= comment.text %></td>
-          <td><%= comment.created_at.strftime("%H:%M %d.%m.%Y") %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="comments">
+      <h2>Komentáře</h2>
+      <% @movie.comments.all.reverse.each do |comment| %>
+        <div class="comment">
+          <span class="name"><%= comment.name %></span><span class="date"><%= comment.created_at.strftime('%H:%M %d.%m.%Y') %></span>
+          <div class="message"><%= comment.text %></div>
+        </div>
+        <% if refinery_user? %>
+          <%= link_to 'Smazat', refinery.contest_comments_path(:id => comment), :method => :delete %>
+          <% end %>
+        <hr />
+      <% end %>
+    </div>
+    </div>
+    <div class="modal-footer">
+      <a data-dismiss="modal" href="#" class="btn">Zavřít</a>
+    </div>
   </div>
-  <div class="modal-footer">
-    <a data-dismiss="modal" href="#" class="btn">Zavřít</a>
-  </div>
-</div>
