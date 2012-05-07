@@ -9,6 +9,8 @@ module Refinery
       def create
         @movie = ::Refinery::Contest::Movie.new(params[:movie])
         if @movie.save
+          SexyMailer.new_movie(@movie).deliver
+          SexyMailer.thanks(@movie).deliver
           redirect_to(:back, :notice => 'Film byl poslán ke kontrole.')
         else
           session[:movie] = @movie
