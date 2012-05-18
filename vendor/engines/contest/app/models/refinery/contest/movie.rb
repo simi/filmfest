@@ -5,7 +5,7 @@ module Refinery
       extend FriendlyId
 
       friendly_id :name, use: :slugged
-      acts_as_indexed :fields => [:name, :anotation, :year, :director_name, :director_surname, :screenwriter_name, :screenwriter_surname, :genre, :actors, :informations, :youtube_link, :name, :surname, :address, :telephone, :email]
+      acts_as_indexed :fields => [:name, :anotation, :year, :director_name, :director_surname, :screenwriter_name, :screenwriter_surname, :genre, :actors, :informations, :youtube_link, :surname, :address, :telephone, :email]
       belongs_to :category, :class_name => ::Category
 
       has_many :ratings, :class_name => '::Refinery::Contest::Movie::Rating'
