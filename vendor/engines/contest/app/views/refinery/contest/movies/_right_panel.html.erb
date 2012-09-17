@@ -54,6 +54,7 @@
   <%= simple_form_for(@movie.comments.new, :url => refinery.contest_comments_path, :method => :post, :html => {:class => 'form-vertical' }) do |f| %>
     <%= f.input :name, :placeholder => 'Jméno', :label => ' ', :required => false %>
     <%= f.input :text, :placeholder => 'Text', :label => ' ', :required => false %>
+    <%= f.input :hidden, :input_html => {:class => 'hide'} %>
     <%= f.input :movie_id, :as => :hidden, :value => @movie.id %>
     <%= f.submit 'Odeslat' %>
   <% end %>

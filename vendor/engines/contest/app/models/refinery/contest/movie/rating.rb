@@ -5,9 +5,9 @@ module Refinery
       belongs_to :movie, :class_name => '::Refinery::Contest::Movie'
 
       validates :name, :presence => true
-      validates :value, :presence => true
+      validates :value, :presence => true, :numericality => true
       validates :ip, :presence => true
-      validates :movie_id, :presence => true
+      validates :movie_id, :presence => true, :numericality => true
 
       after_create :update_movie_rating
 
